@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate, Navigate } from "react-router-dom";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 const LoginPage: React.FC = () => {
   const { user, login, loading } = useAuth();
@@ -37,13 +38,28 @@ const LoginPage: React.FC = () => {
 
   return (
     <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-      bgcolor="#f5f5f5"
+      sx={{
+        minHeight: "100vh",
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        bgcolor: "#f5f5f5",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 10,
+      }}
     >
-      <Paper sx={{ p: 4, minWidth: 320 }} elevation={3}>
+      <Paper
+        sx={{ p: 4, minWidth: 320, maxWidth: 400, width: "100%" }}
+        elevation={3}
+      >
+        <Box display="flex" flexDirection="column" alignItems="center" mb={2}>
+          <AdminPanelSettingsIcon
+            sx={{ fontSize: 48, color: "primary.main", mb: 1 }}
+          />
+        </Box>
         <Typography variant="h5" gutterBottom align="center">
           Admin Login
         </Typography>
